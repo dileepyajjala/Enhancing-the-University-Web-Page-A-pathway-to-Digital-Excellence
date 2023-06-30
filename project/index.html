@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University website Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        * {
+            margin: 0;
+            border: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .header {
+            min-height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url("images/banner.png");
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        nav {
+            display: flex;
+            padding: 2% 6%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav img {
+            width: 150px;
+        }
+
+        .nav-links {
+            flex: 1;
+            text-align: right;
+        }
+
+        .nav-links ul li {
+            list-style: none;
+            display: inline-block;
+            padding: 8px 12px;
+            position: relative;
+        }
+
+        .nav-links ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 13px;
+        }
+
+        .nav-links ul li::after {
+            content: '';
+            width: 0%;
+            height: 2px;
+            background: #f44336;
+            display: block;
+            margin: auto;
+            transition: 0.5s;
+        }
+
+        .nav-links ul li:hover::after {
+            width: 100%;
+        }
+
+        .text-box {
+            width: 90%;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .text-box h1 {
+            font-size: 62px;
+        }
+
+        .text-box p1 {
+            margin: 10px 0 40px;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .hero-btn {
+            display: inline;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 12px 34px;
+            font-size: 13px;
+            background: transparent;
+            position: relative;
+            cursor: pointer;
+            transition: 1s;
+        }
+
+        .hero-btn:hover {
+            border: 1px solid #f44336;
+            background: #f44336;
+        }
+
+        /*------ course --------*/
+        .course {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        #c1 {
+            font-size: 36px;
+            font-weight: 600px;
+        }
+
+        #c2 {
+            color: #777;
+            font-size: 14px;
+            font-weight: 300px;
+            line-height: 22px;
+            padding: 10px;
+        }
+
+        .row {
+            margin-top: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .course-col {
+            flex-basis: 31%;
+            background: #fff3f3;
+            border-radius: 10px;
+            margin-bottom: 5%;
+            padding: 20px 12px;
+            box-sizing: border-box;
+            transition: 0.5s;
+        }
+
+        h3 {
+            text-align: center;
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .course-col:hover {
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        /*------------- campus ---------------*/
+        .campus {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding-top: 50px;
+
+        }
+
+        .campus-col {
+            flex-basis: 32%;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: calc(32% - 10px);
+            text-align: center;
+            margin-right: 10px;
+            margin-bottom: 10px;
+
+        }
+
+        .campus-col:last-child {
+            margin-right: 0;
+        }
+
+        .campus-col img {
+            width: 100%;
+            padding-right: 80px;
+            display: block;
+        }
+
+        .layer {
+            background: transparent;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: 0.5s;
+        }
+
+        .layer:hover {
+            background: rgba(226, 0, 0, 0.7);
+        }
+
+        .layer h3 {
+            width: 100%;
+            font-weight: 500;
+            color: #fff;
+            font-size: 26px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            position: absolute;
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .layer:hover h3 {
+            bottom: 49%;
+            opacity: 1;
+        }
+
+        /*--------Facilities-------------*/
+        .facilities {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .facilities-col {
+            flex-basis: 31%;
+            border-radius: 10px;
+            margin-bottom: 5%;
+            text-align: left;
+        }
+
+        .facilities-col img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .facilities-col p {
+            margin: 0;
+        }
+
+        .facilities-col h3 {
+            margin-top: 16px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        /*--------Testimonials-------*/
+        .testimonials {
+            width: 80%;
+            margin: auto;
+            padding-top: 100px;
+            text-align: center;
+        }
+        .testimonial-col{
+            flex-basis: 44%;
+            border-radius: 10px;
+            margin-bottom: 5%;
+            text-align: left;
+            background: #fff3f3;
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+        }
+        .testimonial-col img{
+            height: 40px;
+            margin-left: 5px;
+            margin-right: 30px;
+            border-radius: 50%;
+        }
+        .testimonial-col p{
+            padding: 0;
+        }
+        .testimonial-col h3{
+            margin-top: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+            <div class="nav-links">
+                &nbsp;<i class="fas fa-times" aria-hidden="true"></i>
+                <ul>
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">ABOUT</a></li>
+                    <li><a href="">COURSE</a></li>
+                    <li><a href="">BLOG</a></li>
+                    <li><a href="">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </nav>
+        <div class="text-box">
+            <h1>World's Biggest University</h1>
+            <p>“You can't just sit there and wait for people to give you that golden dream.<br> You've got to get out
+                there
+                and make it happen for yourself.”</p><br><br>
+            <a href="" class="hero-btn">visit us to know more</a>
+        </div>
+
+    </section>
+    <!-- course   -->
+    <section class="course">
+        <h1 id="c1">Courses we offer</h1><br>
+        <p id="c2">"The beautiful thing about learning is that no one can take it away from you." - B.B. King</p>
+        <br><br>
+        <div class="row">
+            <div class="course-col">
+                <h3>Bachelor's Degree</h3>
+                <p id="c2">A bachelor's degree is an undergraduate degree typically earned after completing a program of
+                    study
+                    that generally lasts for three to four years, depending on the country and educational system. It is
+                    the first level of degree that students pursue after high school. Bachelor's degrees are awarded in
+                    various fields of study, such as Bachelor of Arts (B.A.), Bachelor of Science (B.S.), Bachelor of
+                    Engineering (B.Eng.), Bachelor of Business Administration (B.B.A.), and many more.</p>
+            </div>
+            <div class="course-col">
+                <h3>Master's Degree</h3>
+                <p id="c2">A master's degree is a graduate-level degree that is earned after completing a bachelor's
+                    degree. It
+                    usually requires one to two years of additional study beyond the bachelor's degree. Master's degrees
+                    are awarded in specific fields of study and provide a more in-depth knowledge and specialization in
+                    a particular subject area. Examples of master's degrees include Master of Arts (M.A.), Master of
+                    Science (M.S.), Master of Business Administration (MBA), Master of Education (M.Ed.), and many
+                    others.</p>
+            </div>
+            <div class="course-col">
+                <h3>Doctoral Degree</h3>
+                <p id="c2">A doctoral degree, commonly known as a Ph.D. (Doctor of Philosophy), is the highest level of
+                    educational attainment and is obtained after completing a program of study that involves original
+                    research and the submission of a doctoral thesis or dissertation. Doctoral degrees are awarded in
+                    various fields of study and are typically pursued by individuals interested in academic or research
+                    careers. Other examples of doctoral degrees include Doctor of Medicine (M.D.), Doctor of Law (J.D.),
+                    Doctor of Engineering (D.Eng.), and more.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!--------------  campus  ----------->
+    <section class="campus">
+        <h1>Our Global campus</h1><br>
+        <p>Our global campus is a vibrant and diverse educational community that transcends geographical boundaries,
+            bringing together students, faculty, and resources from around the world. It serves as a hub for
+            cross-cultural exchange, collaboration, and learning, offering a rich and inclusive environment for students
+            to thrive.In a global campus, students have the opportunity to interact with peers from different countries,
+            cultures, and backgrounds, fostering a deep appreciation for diversity and a global perspective. They can
+            engage in meaningful discussions, share ideas, and gain insights from various cultural perspectives,
+            broadening their horizons and expanding their worldview.</p>
+        <br><br>
+        <div class="row">
+            <div class="campus-col">
+                <img src="images/london.png">
+                <div class="layer">
+                    <h3>LONDON</h3>
+                </div>
+            </div>
+            <div class="campus-col">
+                <img src="images/newyork.png">
+                <div class="layer">
+                    <h3>NEW YORK</h3>
+                </div>
+            </div>
+            <div class="campus-col">
+                <img src="images/washington.png">
+                <div class="layer">
+                    <h3>WASHINGTON</h3>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--------------- Facilities ------------------------>
+    <section class="facilities">
+        <h1>Our Facilities</h1><br>
+        <p>University facilities encompass academic buildings, libraries, research centers, campus housing, and sports
+            and recreation facilities. These resources support learning, research, and student well-being. Additionally,
+            universities provide dining facilities, student support services, and auditoriums for events and
+            performances. Robust IT infrastructure and outdoor spaces further enhance the overall university experience.
+        </p><br><br><br>
+        <div class="row">
+            <div class="facilities-col">
+                <img src="images/library.png">
+                <h3>World Class Library</h3>
+                <p>The university library serves as a valuable resource for students, faculty, and researchers. It
+                    offers an extensive collection of books, journals, and digital resources, catering to various
+                    disciplines. The library provides a quiet and conducive environment for studying and research.
+                    Knowledgeable librarians assist users in locating and accessing relevant information. Additionally,
+                    the library may offer study rooms, computer labs, and access to specialized databases, promoting
+                    academic excellence and intellectual growth.</p>
+            </div>
+            <div class="facilities-col">
+                <img src="images/basketball.png">
+                <h3>Basketball</h3>
+                <p>The university library serves as a valuable resource for students, faculty, and researchers. It
+                    offers an extensive collection of books, journals, and digital resources, catering to various
+                    disciplines. The library provides a quiet and conducive environment for studying and research.
+                    Knowledgeable librarians assist users in locating and accessing relevant information. Additionally,
+                    the library may offer study rooms, computer labs, and access to specialized databases, promoting
+                    academic excellence and intellectual growth.</p>
+            </div>
+            <div class="facilities-col">
+                <img src="images/cafeteria.png">
+                <h3>Tasty and Healthy Food</h3>
+                <p>The university library serves as a valuable resource for students, faculty, and researchers. It
+                    offers an extensive collection of books, journals, and digital resources, catering to various
+                    disciplines. The library provides a quiet and conducive environment for studying and research.
+                    Knowledgeable librarians assist users in locating and accessing relevant information. Additionally,
+                    the library may offer study rooms, computer labs, and access to specialized databases, promoting
+                    academic excellence and intellectual growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-------------------Testimonials---------------->
+    <section class="testimonials">
+        <h1>What Our Students says</h1><br>
+        <p>"The university has provided me with a transformative learning experience, empowering me to pursue my
+            passions and achieve my goals."</p><br><br>
+        <div class="row">
+            <div class="testimonial-col">
+                <img src="images/user1.jpg">
+                <div>
+                    <p>"The university has exceeded my expectations with its exceptional faculty, engaging curriculum,
+                        and supportive community, enabling me to thrive academically and personally.
+                        I am grateful for the invaluable opportunities and experiences the university has offered,
+                        preparing me for a successful future and lifelong learning."</p>
+                    <h3>Lori Grimes</h3>
+                </div>
+            </div>
+            <div class="testimonial-col">
+                <img src="images/user2.jpg">
+                <div>
+                    <p>"The diverse and inclusive campus environment has fostered meaningful connections and
+                        friendships, enriching my overall university journey.
+                        I highly recommend this university to aspiring students seeking a well-rounded education,
+                        personal growth, and a vibrant learning community."</p>
+                    <h3>Rick Grimes</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
